@@ -1,4 +1,5 @@
 const {
+    // this are the commands that you can use
          Readfile, 
          WriteFile,
          DeleteFile,
@@ -6,11 +7,14 @@ const {
          RemoveFolder,
          ReadfileStream,
          WritefileStream
+
 } = require('./function')
 
 
-// put the commands here || (below)
+// put the commands down here here || ex: WriteFile('./helloWorld.txt')
 
-WritefileStream("./greet.txt", " this is the second line")
+
+
+//put the commands up here ||
 
 
