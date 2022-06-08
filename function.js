@@ -79,7 +79,7 @@ const DeleteFile = (FileLocation) => {
     }
 }
 
-//Function you can call to delete a file
+//Function you can call to create a folder
 //just go to commandsection and call this function
 
 const CreateFolder = (FolderLocation)=>{
@@ -100,6 +100,8 @@ const CreateFolder = (FolderLocation)=>{
     }
 }
 
+//Function you can call to remove a folder
+//just go to commandsection and call this function
 const RemoveFolder = (FolderLocation)=>{
     //check if the file exists
     //if it exist proceed removing the folder
@@ -118,5 +120,22 @@ const RemoveFolder = (FolderLocation)=>{
    }
 }
 
+// Alternative way of reading a file but with a use of stream
+//just go to commandsection and call this function
+const ReadfileStream = (FileLocation) =>{
+    if (fs.existsSync(FileLocation)) {
+        let Read = fs.createReadStream(FileLocation, { encoding: 'utf-8' })
+        Read.on('data', (buffer) => {
+            console.log(buffer)
+    })
+   }else{
+    console.error("No such File")
+   }
+}
 
-module.exports = {Readfile, WriteFile, DeleteFile, CreateFolder, RemoveFolder}
+const WritefileStream = (FileLocation, Content) =>{
+    let Writer = fs.createWriteStream(FileLocation)
+    Writer.write(Content)
+}
+
+module.exports = {Readfile, WriteFile, DeleteFile, CreateFolder, RemoveFolder, ReadfileStream, WritefileStream}

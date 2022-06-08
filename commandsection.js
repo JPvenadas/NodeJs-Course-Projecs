@@ -3,11 +3,14 @@ const {
          WriteFile,
          DeleteFile,
          CreateFolder,
-         RemoveFolder
+         RemoveFolder,
+         ReadfileStream,
+         WritefileStream
 } = require('./function')
 
 
 // put the commands here || (below)
 
-RemoveFolder('./folder')
+WritefileStream("./greet.txt", " this is the second line")
+
 
