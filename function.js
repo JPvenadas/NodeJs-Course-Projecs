@@ -55,18 +55,25 @@ const WriteFile = (FileLocation, Content)=>{
     }
 }
 
+//Function you can call to delete a file
+//just go to commandsection and call this function
 const DeleteFile = (FileLocation) => {
+    //check if the file exists
     if(fs.existsSync(FileLocation)){
+        //if it exists delete the file
         fs.unlink(FileLocation, (err)=>{
+            //if theres an error, display it
             if(err){
                 console.log(err)
             }
+            //if successful
             else{
                 console.log("Successfully Deleted")
             }
         })
         
     }
+    //if the file doesn't exist throw an error
     else{
         console.error("No such File")
     }
