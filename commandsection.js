@@ -1,3 +1,10 @@
-const {Readfile} = require('./function')
+const {
+         Readfile, 
+         WriteFile
+} = require('./function')
 
-Readfile('./greet.txt')
+
+// put the commands here || (below)
+
+WriteFile('./greet.txt', 'Hello, I am Jayphe')
+
