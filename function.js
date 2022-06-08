@@ -24,25 +24,53 @@ const Readfile = (FileLocation) => {
     }
 }
 
-
+// function you can call when creating a file or writing on a file
+// just go to commandsection and call this function
 const WriteFile = (FileLocation, Content)=>{
+    //check if the file exists
     if(fs.existsSync(FileLocation)){
+        //asks if you want to overwrite the existing file
         const answer = prompt("the file already exists, do you want to overwrite it? (Y/N)")
         if(answer === "Y" || answer == "y"){
+            //if yes, proceed with the writing
             Proceed(FileLocation, Content)
         }
-    }else{
+    }
+    //if the file doesn't exist, create a new file then write the content
+    else{
             Proceed(FileLocation, Content)
     }
 
+    //function for writing the file
     function Proceed(FileLocation, Content){
         fs.writeFile(FileLocation, Content, (err)=>{
+            //check if theres an error
             if(err){
                 console.log(err)
             }else{
+            //successful
                 console.log("Successfully written")
             }
         })
     }
 }
-module.exports = {Readfile, WriteFile}
+
+const DeleteFile = (FileLocation) => {
+    if(fs.existsSync(FileLocation)){
+        fs.unlink(FileLocation, (err)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                console.log("Successfully Deleted")
+            }
+        })
+        
+    }
+    else{
+        console.error("No such File")
+    }
+}
+
+
+module.exports = {Readfile, WriteFile, DeleteFile}
