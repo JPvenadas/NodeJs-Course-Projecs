@@ -79,5 +79,27 @@ const DeleteFile = (FileLocation) => {
     }
 }
 
+//Function you can call to delete a file
+//just go to commandsection and call this function
 
-module.exports = {Readfile, WriteFile, DeleteFile}
+const CreateFolder = (FolderLocation)=>{
+     //check if the file exists
+     //if it doesnt exist proceed creating the folder
+    if(!fs.existsSync(FolderLocation)){
+        fs.mkdir(FolderLocation, (err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log("successfully created a folder")
+            }
+        })
+    }
+    // if it exists throw an error
+    else{
+        console.error("Folder already exists")
+    }
+}
+
+
+
+module.exports = {Readfile, WriteFile, DeleteFile, CreateFolder}
