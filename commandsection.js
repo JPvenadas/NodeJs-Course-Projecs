@@ -2,11 +2,12 @@ const {
          Readfile, 
          WriteFile,
          DeleteFile,
-         CreateFolder
+         CreateFolder,
+         RemoveFolder
 } = require('./function')
 
 
 // put the commands here || (below)
 
-CreateFolder('./folder')
+RemoveFolder('./folder')
 

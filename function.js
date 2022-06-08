@@ -100,6 +100,23 @@ const CreateFolder = (FolderLocation)=>{
     }
 }
 
+const RemoveFolder = (FolderLocation)=>{
+    //check if the file exists
+    //if it exist proceed removing the folder
+   if(fs.existsSync(FolderLocation)){
+       fs.rmdir(FolderLocation, (err)=>{
+           if(err){
+               console.log(err)
+           }else{
+               console.log("successfully removed the folder")
+           }
+       })
+   }
+   // if it doesn't exists throw an error
+   else{
+       console.error("No such Folder")
+   }
+}
 
 
-module.exports = {Readfile, WriteFile, DeleteFile, CreateFolder}
+module.exports = {Readfile, WriteFile, DeleteFile, CreateFolder, RemoveFolder}
