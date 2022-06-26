@@ -16,16 +16,23 @@ const server = http.createServer((req, res)=>{
 
   //below are the conditionals that is set to send different html files at different url request
   //if the url is /index of / send the html file
-  if(req.url == "/" || req.url == "/index"){
+  if(req.url == "/"){
     path += "/Index.html"
+    res.statusCode = 200
+  }
+  else if(req.url == "/index"){
+    path += "/Index.html"
+    res.statusCode = 301
   }
   //if the url is /about send the about.html
   else if(req.url == "/about"){
     path += "/about.html"
+    res.statusCode = 200
   }
   //if the url is not recognized send the 404.html
   else{
     path += "/404.html"
+    res.statusCode = 404
   }
 
   fs.readFile(path, (err, data)=>{
@@ -38,8 +45,6 @@ const server = http.createServer((req, res)=>{
     }
   })
 })
-
-
 
 
 
